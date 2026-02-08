@@ -11,19 +11,27 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/help` | List all available commands | When you forget a command or want to explore |
 | `/status` | Show session info and current model | When you need to check your setup |
 | `/clear` | Erase conversation and start fresh | When switching to a completely new task |
-| `/cost` | Show token usage and estimated cost | When monitoring usage during long sessions |
 | `/init` | Create CLAUDE.md project instructions | When setting up Claude Code in a new project |
 | `/memory` | View and edit CLAUDE.md | When updating project conventions or instructions |
-| `/model` | Switch between Claude models | When you need more power (Opus) or more speed (Haiku) |
 | `/config` | View and edit global configuration | When adjusting default behavior and preferences |
-| `/compact` | Compress conversation to save context | When your session gets long and Claude starts forgetting |
 | `/permissions` | Manage tool access permissions | When adjusting what Claude can do automatically |
-| `/doctor` | Run a health check diagnostic | When something isn't working and you don't know why |
+| `/model` | Switch between Claude models | When you need more power (Opus) or more speed (Haiku) |
+| `/plan` | Enter plan mode | When you want Claude to analyze before acting |
 | `/vim` | Toggle vim keybindings | When you want modal editing for prompts |
-| `/terminal-setup` | Configure terminal display | When output looks garbled or misaligned |
+| `/compact` | Compress conversation to save context | When your session gets long and Claude starts forgetting |
+| `/context` | Visualize context window usage | When you want to see how much context space is left |
+| `/cost` | Show token usage and cost (API users) | When monitoring API billing during long sessions |
+| `/stats` | Show usage patterns and history | When reviewing how you use Claude Code over time |
+| `/resume` | Resume a previous session | When picking up where you left off |
+| `/rewind` | Rewind conversation and/or code | When Claude went down the wrong path |
+| `/rename` | Name the current session | When you want to find this session easily later |
+| `/copy` | Copy last response to clipboard | When you want to paste Claude's response elsewhere |
+| `/doctor` | Run a health check diagnostic | When something isn't working and you don't know why |
+| `/terminal-setup` | Configure terminal for Claude Code | When setting up multiline input or fixing display issues |
+| `/theme` | Change color theme | When you want a different look |
 | `/review` | Start a code review | Before pushing changes, to catch issues early |
-| `/hooks` | Manage pre/post action hooks | When automating formatting, linting, or notifications |
 | `/mcp` | Manage MCP server connections | When connecting to external tools and data sources |
+| `/hooks` | Manage pre/post action hooks | When automating formatting, linting, or notifications |
 | `/login` | Authenticate with Claude Code | When setting up or refreshing authentication |
 | `/logout` | End your authenticated session | When switching accounts or leaving a shared machine |
 | `/bug` | Report a bug to the Claude Code team | When you encounter unexpected behavior |
@@ -38,35 +46,51 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/help` | Show all available commands |
 | `/status` | Check session info and current model |
 | `/clear` | Wipe conversation and start fresh |
-| `/cost` | View token usage and estimated cost |
 
 ### Project Setup
 | Command | What It Does |
 |---------|-------------|
 | `/init` | Generate CLAUDE.md with project context |
 | `/memory` | Open CLAUDE.md for viewing/editing |
-| `/model` | Switch between Sonnet, Opus, and Haiku |
 | `/config` | Manage global Claude Code settings |
+| `/permissions` | Control what Claude can do automatically |
 
-### Context Management
+### Model & Modes
+| Command | What It Does |
+|---------|-------------|
+| `/model` | Switch between Sonnet, Opus, and Haiku |
+| `/plan` | Enter plan mode — analyze before acting |
+| `/vim` | Toggle vim-style keybindings |
+
+### Context & Usage
 | Command | What It Does |
 |---------|-------------|
 | `/compact` | Summarize conversation to free context space |
-| `/permissions` | Control what Claude can do automatically |
+| `/context` | Visualize context window usage |
+| `/cost` | Track API token costs (API users) |
+| `/stats` | View usage patterns and history |
+
+### Session Management
+| Command | What It Does |
+|---------|-------------|
+| `/resume` | Continue a previous session |
+| `/rewind` | Go back to a previous conversation/code state |
+| `/rename` | Give the current session a name |
+| `/copy` | Copy last response to clipboard |
 
 ### Developer Tools
 | Command | What It Does |
 |---------|-------------|
 | `/doctor` | Diagnose configuration and connectivity issues |
-| `/vim` | Toggle vim-style keybindings |
 | `/terminal-setup` | Configure terminal for optimal display |
+| `/theme` | Change the color theme |
 | `/review` | Get code review feedback on changes |
 
 ### Integrations
 | Command | What It Does |
 |---------|-------------|
-| `/hooks` | Set up pre/post action automations |
 | `/mcp` | Connect external tools via MCP protocol |
+| `/hooks` | Set up pre/post action automations |
 | `/login` | Authenticate or refresh session |
 | `/logout` | End authenticated session |
 | `/bug` | Report an issue to the Claude Code team |
@@ -87,23 +111,33 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 /status          --> Confirm model and session
 /model sonnet    --> Start with balanced model
 ... work ...
+/context         --> Check context usage
 /compact         --> Free up context after a big task
-/cost            --> Check usage
 ```
 
-### Debugging a Problem
+### Complex Task
 ```
-/doctor          --> Check if the issue is configuration-related
-/model opus      --> Switch to most capable model for hard bugs
-... debug ...
-/model sonnet    --> Switch back when done
+/plan            --> Have Claude analyze before acting
+... review plan ...
+/model opus      --> Switch to most capable model if needed
+... implement ...
+/rewind          --> Go back if the approach doesn't work
+```
+
+### Long Session Management
+```
+/rename my-task  --> Name the session for later
+/compact         --> Compress periodically
+/stats           --> Check usage patterns
+... done for now ...
+/resume my-task  --> Pick up tomorrow
 ```
 
 ### Pre-Push Routine
 ```
 /review          --> Get feedback on your changes
 ... address feedback ...
-/cost            --> Check session cost
+/copy            --> Copy useful output to PR description
 ```
 
 ### Something Broken?
@@ -128,10 +162,28 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | Purpose | Create CLAUDE.md | Edit CLAUDE.md |
 | Use when | First time setup | Ongoing refinement |
 
-| | /login | /logout |
-|---|--------|---------|
-| Purpose | Start/refresh auth | End auth session |
-| Use when | Session expired | Switching accounts |
+| | /cost | /stats |
+|---|-------|--------|
+| For | API users | All users (especially subscribers) |
+| Shows | Token costs and billing | Usage patterns, streaks, history |
+
+| | /plan mode | Normal mode |
+|---|-----------|-------------|
+| Claude can | Read, analyze, plan | Read, write, execute |
+| Use when | Complex tasks, want to review approach first | Ready to make changes |
+
+---
+
+## Keyboard Shortcuts (Bonus)
+
+| Shortcut | What It Does |
+|----------|-------------|
+| `Shift+Tab` / `Alt+M` | Cycle permission modes (Normal → Plan → Auto-Accept) |
+| `Esc Esc` | Rewind (same as `/rewind`) |
+| `Ctrl+C` | Cancel current generation |
+| `Ctrl+L` | Clear terminal screen (keeps conversation) |
+| `Ctrl+T` | Toggle task list |
+| `!command` | Run bash command directly |
 
 ---
 

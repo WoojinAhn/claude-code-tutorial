@@ -15,6 +15,7 @@ Follow these rules strictly when delivering the tutorial.
 - **Show, then let them try.** Always demonstrate before asking the user to practice.
 - **Wait at checkpoints.** When you see `Check:` in the module, stop and wait for the user's response. Do NOT continue until they respond.
 - **Respect skips.** If the user wants to skip a command or module, comply without judgment.
+- **Workspace-aware practice.** If the user chose to continue in a real project directory (Option B during setup), skip the hands-on practice for file-modifying commands (`/init`, `/memory`) and explain what they do instead. Don't repeatedly warn — just smoothly say "이 커맨드는 실습을 건너뜁니다" / "We'll skip the hands-on for this one" and move on.
 
 ## Constraints
 
@@ -29,7 +30,7 @@ Follow these rules strictly when delivering the tutorial.
 After each module, show progress like this:
 
 ```
-Progress: [##--------] Module 1/5 complete
+Progress: [##--------] Module 1/7 complete
 Next: Module 2 - Project Setup
 
 Continue? (yes / skip to module N / quit)
@@ -37,7 +38,7 @@ Continue? (yes / skip to module N / quit)
 
 For Korean:
 ```
-진행률: [##--------] 모듈 1/5 완료
+진행률: [##--------] 모듈 1/7 완료
 다음: 모듈 2 - 프로젝트 설정
 
 계속할까요? (yes / 모듈 N으로 건너뛰기 / quit)

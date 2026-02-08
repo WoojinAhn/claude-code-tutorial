@@ -2,7 +2,7 @@
 
 Now that you know the basics, let's set up Claude Code for your project. This is where Claude Code goes from a generic assistant to a context-aware teammate that understands your codebase, conventions, and preferences.
 
-By the end of this module, you'll know how to create project instructions, edit them, switch models, and configure Claude Code settings.
+By the end of this module, you'll know how to create project instructions, edit them, configure settings, and manage permissions.
 
 ---
 
@@ -75,49 +75,7 @@ Claude reads this file at the start of every session, so it always has your proj
 
 ---
 
-## 2.3 /model
-
-**Explain:** `/model` lets you switch between different Claude models mid-conversation. Different models have different strengths — some are faster, some are smarter, some are cheaper. Pick the right one for the task at hand.
-
-**Syntax:**
-```
-/model
-/model <model-name>
-```
-
-Running `/model` without arguments shows the current model and available options. Running `/model <name>` switches to that model.
-
-**Example:** Here's a typical model selection scenario:
-
-```
-> /model
-Current model: claude-sonnet-4-5-20250929
-
-Available models:
-- claude-sonnet-4-5-20250929 (balanced)
-- claude-opus-4-6 (most capable)
-- claude-haiku-3-5 (fastest)
-
-> /model claude-opus-4-6
-Switched to claude-opus-4-6
-```
-
-When to use each:
-| Model | Best For |
-|-------|----------|
-| Sonnet | Daily coding tasks, refactoring, explanations — good balance of speed and quality |
-| Opus | Complex architecture decisions, tricky bugs, nuanced code review |
-| Haiku | Quick questions, simple edits, boilerplate generation — fast and cheap |
-
-**Practice:** Try running `/model` now to see your current model and available options. If you want, switch to a different model and switch back.
-
-**Check:** Done? Which model are you on? If you switched, did you notice any difference in response time?
-
-**Tip:** Start tasks with Sonnet. If you hit a wall — Claude misunderstands your architecture, produces buggy logic, or can't handle a complex refactor — switch to Opus for that specific task, then switch back. This keeps costs down while giving you access to the most capable model when you need it.
-
----
-
-## 2.4 /config
+## 2.3 /config
 
 **Explain:** `/config` lets you view and edit your Claude Code configuration. This controls global behavior like default permissions, preferred model, theme settings, and other preferences that apply across all your projects.
 
@@ -126,21 +84,10 @@ When to use each:
 /config
 ```
 
-**Example:** Running `/config` shows your current configuration and lets you modify settings. You might see options like:
-
-```
-Configuration:
-- Default model: claude-sonnet-4-5-20250929
-- Auto-compact: enabled
-- Theme: dark
-- Permissions: ask for file writes
-- Telemetry: enabled
-```
-
-You can adjust settings like:
+**Example:** Running `/config` opens the Settings interface where you can adjust settings like:
 - Which actions require confirmation vs. run automatically
 - Default model preference
-- Notification preferences
+- Theme and display settings
 - Tool permissions
 
 **Practice:** Try running `/config` now. Browse through the available settings to see what's configurable.
@@ -151,16 +98,47 @@ You can adjust settings like:
 
 ---
 
+## 2.4 /permissions
+
+**Explain:** `/permissions` shows and manages what tools Claude Code is allowed to use — and whether it needs to ask you first. This is your security control panel. It determines whether Claude can read files, write files, run shell commands, and more, either freely or only with your approval.
+
+**Syntax:**
+```
+/permissions
+```
+
+**Example:** Running `/permissions` shows your current permission settings:
+
+Permissions work at three levels:
+- **Allow** — Claude does it automatically, no confirmation needed
+- **Deny** — Claude cannot do it at all
+- **Ask** — Claude requests your approval each time
+
+You can also add specific rules. For example:
+```
+Allow: Bash(npm test)
+Allow: Bash(git status)
+Deny: Bash(rm -rf *)
+```
+
+**Practice:** Try running `/permissions` now. Review what Claude is currently allowed to do in your session.
+
+**Check:** Done? Tell me what you see. Are there any permissions you'd want to change? Too restrictive? Too open?
+
+**Tip:** The sweet spot for most developers is: allow reads and common dev commands (test, lint, build), ask for file writes, deny anything destructive. As you build trust, you can open up write permissions for specific directories or file types.
+
+---
+
 ## Module 2 Complete!
 
-**Progress: [####................] 2/5 modules done**
+**Progress: [####............] 2/7 modules done**
 
 You now know how to set up Claude Code for any project:
 - `/init` — create project instructions (CLAUDE.md)
 - `/memory` — view and edit project instructions
-- `/model` — switch between Claude models
 - `/config` — manage global configuration
+- `/permissions` — control what Claude can and can't do
 
-Next up: **Module 3 — Context & Permissions**, where you'll learn how to manage your conversation's context window and control what Claude can do.
+Next up: **Module 3 — Model & Modes**, where you'll learn how to switch models and use different interaction modes.
 
-**Continue?** Open `03-context-permissions.md` when you're ready.
+**Continue?** Open `03-model-modes.md` when you're ready.

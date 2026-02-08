@@ -8,12 +8,12 @@ No terminal switching, no external tools. Just `/tutorial` and learn by doing.
 
 - **Interactive**: Learn one command at a time with explain, demo, practice, and tips
 - **Bilingual**: Full support for English (`en`) and Korean (`kr`)
-- **16 commands** across 5 modules + cheatsheet
+- **27 commands** across 7 modules + cheatsheet
 - **Self-paced**: Skip, jump to any module, or quit anytime
 
 ## Requirements
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated
+- [Claude Code](https://code.claude.com) installed and authenticated
 
 ## Installation
 
@@ -42,11 +42,13 @@ Start Claude Code and type:
 
 | Module | Topic | Commands |
 |--------|-------|----------|
-| 1 | First Steps | `/help`, `/status`, `/clear`, `/cost` |
-| 2 | Project Setup | `/init`, `/memory`, `/model`, `/config` |
-| 3 | Context & Permissions | `/compact`, `/permissions` |
-| 4 | Developer Tools | `/doctor`, `/vim`, `/terminal-setup`, `/review` |
-| 5 | Integrations | `/hooks`, `/mcp`, `/login`, `/logout`, `/bug` |
+| 1 | First Steps | `/help`, `/status`, `/clear` |
+| 2 | Project Setup | `/init`, `/memory`, `/config`, `/permissions` |
+| 3 | Model & Modes | `/model`, `/plan`, `/vim` |
+| 4 | Context & Usage | `/compact`, `/context`, `/cost`, `/stats` |
+| 5 | Session Management | `/resume`, `/rewind`, `/rename`, `/copy` |
+| 6 | Developer Tools | `/doctor`, `/terminal-setup`, `/theme`, `/review` |
+| 7 | Integrations | `/mcp`, `/hooks`, `/login`, `/logout`, `/bug` |
 | - | Cheatsheet | All commands reference |
 
 ## Uninstall
