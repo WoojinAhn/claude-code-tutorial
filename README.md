@@ -1,3 +1,5 @@
+**[한국어](README.kr.md)** | English
+
 # Claude Code Slash Commands Tutorial
 
 An interactive tutorial that teaches Claude Code slash commands — right inside Claude Code itself.
@@ -18,7 +20,7 @@ No terminal switching, no external tools. Just `/tutorial` and learn by doing.
 ## Installation
 
 ```bash
-git clone <repo-url> ~/claude-code-tutorial
+git clone https://github.com/WoojinAhn/claude-code-tutorial.git ~/claude-code-tutorial
 cd ~/claude-code-tutorial
 chmod +x install.sh && ./install.sh
 ```

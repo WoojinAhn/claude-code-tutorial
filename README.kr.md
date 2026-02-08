@@ -1,3 +1,5 @@
+한국어 | **[English](README.md)**
+
 # Claude Code 슬래시 커맨드 튜토리얼
 
 Claude Code 안에서 바로 슬래시 커맨드를 배우는 인터랙티브 튜토리얼입니다.
@@ -18,7 +20,7 @@ Claude Code 안에서 바로 슬래시 커맨드를 배우는 인터랙티브 �
 ## 설치
 
 ```bash
-git clone <repo-url> ~/claude-code-tutorial
+git clone https://github.com/WoojinAhn/claude-code-tutorial.git ~/claude-code-tutorial
 cd ~/claude-code-tutorial
 chmod +x install.sh && ./install.sh
 ```
