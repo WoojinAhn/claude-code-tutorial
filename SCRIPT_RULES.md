@@ -16,6 +16,7 @@ Follow these rules strictly when delivering the tutorial.
 - **Wait at checkpoints.** When you see `Check:` in the module, stop and wait for the user's response. Do NOT continue until they respond.
 - **Respect skips.** If the user wants to skip a command or module, comply without judgment.
 - **Workspace-aware practice.** If the user chose to continue in a real project directory (Option B during setup), skip the hands-on practice for file-modifying commands (`/init`, `/memory`) and explain what they do instead. Don't repeatedly warn — just smoothly say "이 커맨드는 실습을 건너뜁니다" / "We'll skip the hands-on for this one" and move on.
+- **Use AskUserQuestion for choices.** Whenever presenting choices (A/B setup, continue/skip/quit, language selection), use `AskUserQuestion` so the user can select with arrow keys instead of typing. This reduces friction for beginners.
 
 ## Constraints
 
@@ -32,14 +33,6 @@ After each module, show progress like this:
 ```
 Progress: [##--------] Module 1/7 complete
 Next: Module 2 - Project Setup
-
-Continue? (yes / skip to module N / quit)
 ```
 
-For Korean:
-```
-진행률: [##--------] 모듈 1/7 완료
-다음: 모듈 2 - 프로젝트 설정
-
-계속할까요? (yes / 모듈 N으로 건너뛰기 / quit)
-```
+Then use `AskUserQuestion` to present continuation options (e.g., "Continue to Module 2", "Skip to another module", "Quit tutorial") so the user can select with arrow keys.

@@ -2,7 +2,7 @@
 
 Now that you know the basics, let's set up Claude Code for your project. This is where Claude Code goes from a generic assistant to a context-aware teammate that understands your codebase, conventions, and preferences.
 
-By the end of this module, you'll know how to create project instructions, edit them, configure settings, and manage permissions.
+By the end of this module, you'll know how to create project instructions, edit them, and manage permissions.
 
 ---
 
@@ -37,9 +37,9 @@ By the end of this module, you'll know how to create project instructions, edit 
 
 Claude reads this file at the start of every session, so it always has your project context.
 
-**Practice:** Try running `/init` now. If you're in a project directory, Claude will generate a tailored `CLAUDE.md`. If not, navigate to a project first.
+**Practice:** Run `/init` and let me know when it's done.
 
-**Check:** Done? You should see a new `CLAUDE.md` file in your project root. Open it and see what Claude generated. Does it accurately describe your project?
+**Check:** Use the `Read` tool to read the generated `CLAUDE.md` at the project root. Provide specific feedback on the auto-generated content (e.g., "It detected Python for your Tech Stack", "Build commands were auto-filled"). If the file doesn't exist, troubleshoot the issue.
 
 **Tip:** The auto-generated `CLAUDE.md` is a starting point, not the final version. Edit it to add things Claude can't infer — like "never use `any` in TypeScript" or "always write tests for service layer changes." The more specific your instructions, the better Claude performs.
 
@@ -54,7 +54,17 @@ Claude reads this file at the start of every session, so it always has your proj
 /memory
 ```
 
-**Example:** Running `/memory` opens your `CLAUDE.md` and lets you see or modify its contents. You might add entries like:
+**Example:** When you run `/memory`, you'll first see a **selection screen** asking which memory to edit. There are three types:
+
+| Type | File Location | Scope | Use For |
+|------|--------------|-------|---------|
+| **Project memory** | `./CLAUDE.md` (project root) | All users of this project | Team conventions, build commands. Commit to Git to share with team |
+| **User memory** | `~/.claude/CLAUDE.md` | All your projects (you only) | Personal global preferences, like "always respond in English" |
+| **Project user memory** | `.claude/CLAUDE.md` | This project only (you only) | Personal project-specific settings you don't want to share |
+
+> If this is your first time, choose **Project memory** — this edits the `CLAUDE.md` created by `/init`, and it's the most common use case.
+
+After selecting, you'll enter editing mode where you can add entries like:
 
 ```markdown
 ## Error Handling
@@ -67,38 +77,15 @@ Claude reads this file at the start of every session, so it always has your proj
 - Commit format: [JIRA-123] feat: description
 ```
 
-**Practice:** Try running `/memory` now. If you already ran `/init`, you'll see your existing `CLAUDE.md`. Try adding one new instruction.
+**Practice:** Run `/memory`, select **Project memory**, and add one rule (e.g., "Run tests with pytest"). Let me know when you're done.
 
-**Check:** Done? Tell me what you added. The change takes effect immediately — Claude will follow your updated instructions in this session and all future sessions.
+**Check:** Use the `Read` tool to read `CLAUDE.md` and confirm what was added (e.g., "I see your new rule!"). Explain that the change takes effect immediately — this session and all future sessions.
 
 **Tip:** Keep `CLAUDE.md` concise and actionable. Claude reads the entire file every session, so bloated instructions waste context window space. Aim for clear, specific rules rather than lengthy explanations. If a rule needs a paragraph to explain, it might be too complex.
 
 ---
 
-## 2.3 /config
-
-**Explain:** `/config` lets you view and edit your Claude Code configuration. This controls global behavior like default permissions, preferred model, theme settings, and other preferences that apply across all your projects.
-
-**Syntax:**
-```
-/config
-```
-
-**Example:** Running `/config` opens the Settings interface where you can adjust settings like:
-- Which actions require confirmation vs. run automatically
-- Default model preference
-- Theme and display settings
-- Tool permissions
-
-**Practice:** Try running `/config` now. Browse through the available settings to see what's configurable.
-
-**Check:** Done? Tell me what you see. Did any setting surprise you or seem worth changing?
-
-**Tip:** The most impactful config change for daily productivity is adjusting permissions. If you trust Claude enough to write files without asking every time, granting broader permissions can significantly speed up your workflow. But start restrictive and open up gradually — you can always change it back.
-
----
-
-## 2.4 /permissions
+## 2.3 /permissions
 
 **Explain:** `/permissions` shows and manages what tools Claude Code is allowed to use — and whether it needs to ask you first. This is your security control panel. It determines whether Claude can read files, write files, run shell commands, and more, either freely or only with your approval.
 
@@ -121,9 +108,9 @@ Allow: Bash(git status)
 Deny: Bash(rm -rf *)
 ```
 
-**Practice:** Try running `/permissions` now. Review what Claude is currently allowed to do in your session.
+**Practice:** Run `/permissions` and count how many items are set to **Allow**. Tell me the number. (Press `Esc` to exit the screen.)
 
-**Check:** Done? Tell me what you see. Are there any permissions you'd want to change? Too restrictive? Too open?
+**Check:** Use the `Read` tool to read `.claude/settings.json` or `~/.claude/settings.json`, count the Allow entries, and compare with the user's answer. If no settings file exists, explain this means everything is at the default (Ask).
 
 **Tip:** The sweet spot for most developers is: allow reads and common dev commands (test, lint, build), ask for file writes, deny anything destructive. As you build trust, you can open up write permissions for specific directories or file types.
 
@@ -136,7 +123,6 @@ Deny: Bash(rm -rf *)
 You now know how to set up Claude Code for any project:
 - `/init` — create project instructions (CLAUDE.md)
 - `/memory` — view and edit project instructions
-- `/config` — manage global configuration
 - `/permissions` — control what Claude can and can't do
 
 Next up: **Module 3 — Model & Modes**, where you'll learn how to switch models and use different interaction modes.

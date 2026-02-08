@@ -10,7 +10,7 @@ No terminal switching, no external tools. Just `/tutorial` and learn by doing.
 
 - **Interactive**: Learn one command at a time with explain, demo, practice, and tips
 - **Bilingual**: Full support for English (`en`) and Korean (`kr`)
-- **27 commands** across 7 modules + cheatsheet
+- **23 commands** across 7 modules (6 core + 1 advanced) + cheatsheet
 - **Self-paced**: Skip, jump to any module, or quit anytime
 
 ## Requirements
@@ -45,12 +45,12 @@ Start Claude Code and type:
 | Module | Topic | Commands |
 |--------|-------|----------|
 | 1 | First Steps | `/help`, `/status`, `/clear` |
-| 2 | Project Setup | `/init`, `/memory`, `/config`, `/permissions` |
-| 3 | Model & Modes | `/model`, `/plan`, `/vim` |
+| 2 | Project Setup | `/init`, `/memory`, `/permissions` |
+| 3 | Model & Modes | `/model`, `/plan` |
 | 4 | Context & Usage | `/compact`, `/context`, `/cost`, `/stats` |
 | 5 | Session Management | `/resume`, `/rewind`, `/rename`, `/copy` |
-| 6 | Developer Tools | `/doctor`, `/terminal-setup`, `/theme`, `/review` |
-| 7 | Integrations | `/mcp`, `/hooks`, `/login`, `/logout`, `/bug` |
+| 6 | Developer Tools | `/doctor`, `/theme`, `/review` |
+| 7 | Advanced | `/config`, `/hooks`, `/mcp`, `/agents` |
 | - | Cheatsheet | All commands reference |
 
 ## Uninstall

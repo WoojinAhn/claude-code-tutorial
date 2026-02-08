@@ -13,11 +13,9 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/clear` | Erase conversation and start fresh | When switching to a completely new task |
 | `/init` | Create CLAUDE.md project instructions | When setting up Claude Code in a new project |
 | `/memory` | View and edit CLAUDE.md | When updating project conventions or instructions |
-| `/config` | View and edit global configuration | When adjusting default behavior and preferences |
 | `/permissions` | Manage tool access permissions | When adjusting what Claude can do automatically |
 | `/model` | Switch between Claude models | When you need more power (Opus) or more speed (Haiku) |
 | `/plan` | Enter plan mode | When you want Claude to analyze before acting |
-| `/vim` | Toggle vim keybindings | When you want modal editing for prompts |
 | `/compact` | Compress conversation to save context | When your session gets long and Claude starts forgetting |
 | `/context` | Visualize context window usage | When you want to see how much context space is left |
 | `/cost` | Show token usage and cost (API users) | When monitoring API billing during long sessions |
@@ -27,14 +25,15 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/rename` | Name the current session | When you want to find this session easily later |
 | `/copy` | Copy last response to clipboard | When you want to paste Claude's response elsewhere |
 | `/doctor` | Run a health check diagnostic | When something isn't working and you don't know why |
-| `/terminal-setup` | Configure terminal for Claude Code | When setting up multiline input or fixing display issues |
 | `/theme` | Change color theme | When you want a different look |
 | `/review` | Start a code review | Before pushing changes, to catch issues early |
-| `/mcp` | Manage MCP server connections | When connecting to external tools and data sources |
+| `/config` | View and edit global configuration | When adjusting default behavior and preferences |
 | `/hooks` | Manage pre/post action hooks | When automating formatting, linting, or notifications |
-| `/login` | Authenticate with Claude Code | When setting up or refreshing authentication |
-| `/logout` | End your authenticated session | When switching accounts or leaving a shared machine |
-| `/bug` | Report a bug to the Claude Code team | When you encounter unexpected behavior |
+| `/mcp` | Manage MCP server connections | When connecting to external tools and data sources |
+| `/agents` | Manage background agents | When monitoring parallel tasks or stopping agents |
+| `/debug` | Troubleshoot session using debug logs | When tracing the cause of unexpected behavior in the current session |
+| `/export` | Export conversation to file or clipboard | When you want to save or share the conversation |
+| `/usage` | Show subscription plan usage and rate limits | When checking remaining quota (subscribers only) |
 
 ---
 
@@ -52,7 +51,6 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 |---------|-------------|
 | `/init` | Generate CLAUDE.md with project context |
 | `/memory` | Open CLAUDE.md for viewing/editing |
-| `/config` | Manage global Claude Code settings |
 | `/permissions` | Control what Claude can do automatically |
 
 ### Model & Modes
@@ -60,7 +58,6 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 |---------|-------------|
 | `/model` | Switch between Sonnet, Opus, and Haiku |
 | `/plan` | Enter plan mode — analyze before acting |
-| `/vim` | Toggle vim-style keybindings |
 
 ### Context & Usage
 | Command | What It Does |
@@ -69,6 +66,7 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/context` | Visualize context window usage |
 | `/cost` | Track API token costs (API users) |
 | `/stats` | View usage patterns and history |
+| `/usage` | Show subscription plan usage and rate limits (subscribers only) |
 
 ### Session Management
 | Command | What It Does |
@@ -77,23 +75,23 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 | `/rewind` | Go back to a previous conversation/code state |
 | `/rename` | Give the current session a name |
 | `/copy` | Copy last response to clipboard |
+| `/export` | Export conversation to file or clipboard |
 
 ### Developer Tools
 | Command | What It Does |
 |---------|-------------|
 | `/doctor` | Diagnose configuration and connectivity issues |
-| `/terminal-setup` | Configure terminal for optimal display |
+| `/debug` | Troubleshoot session using debug logs |
 | `/theme` | Change the color theme |
 | `/review` | Get code review feedback on changes |
 
-### Integrations
+### Advanced
 | Command | What It Does |
 |---------|-------------|
-| `/mcp` | Connect external tools via MCP protocol |
+| `/config` | Manage global Claude Code settings |
 | `/hooks` | Set up pre/post action automations |
-| `/login` | Authenticate or refresh session |
-| `/logout` | End authenticated session |
-| `/bug` | Report an issue to the Claude Code team |
+| `/mcp` | Connect external tools via MCP protocol |
+| `/agents` | Manage background agents |
 
 ---
 
@@ -104,6 +102,7 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 /init            --> Create CLAUDE.md
 /memory          --> Refine the generated instructions
 /permissions     --> Set up appropriate access levels
+/config          --> Fine-tune global settings
 ```
 
 ### Daily Development Session
@@ -143,8 +142,7 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 ### Something Broken?
 ```
 /doctor          --> Run diagnostics
-/login           --> Refresh authentication if needed
-/bug             --> Report if it's a Claude Code issue
+/status          --> Check model and session
 ```
 
 ---
@@ -178,11 +176,20 @@ Your quick-reference card for every Claude Code slash command. Bookmark this pag
 
 | Shortcut | What It Does |
 |----------|-------------|
+| `Esc` | Return to conversation from interactive screens (picker, settings, etc.) |
 | `Shift+Tab` / `Alt+M` | Cycle permission modes (Normal → Plan → Auto-Accept) |
 | `Esc Esc` | Rewind (same as `/rewind`) |
 | `Ctrl+C` | Cancel current generation |
+| `Ctrl+D` | Exit session |
+| `Ctrl+G` | Edit prompt in default text editor |
 | `Ctrl+L` | Clear terminal screen (keeps conversation) |
+| `Ctrl+O` | Toggle verbose output (show tool usage details) |
+| `Ctrl+R` | Reverse search command history |
+| `Ctrl+B` | Run task in background |
 | `Ctrl+T` | Toggle task list |
+| `Ctrl+V` / `Cmd+V` | Paste image from clipboard |
+| `Option+P` / `Alt+P` | Switch model |
+| `Option+T` / `Alt+T` | Toggle extended thinking |
 | `!command` | Run bash command directly |
 
 ---

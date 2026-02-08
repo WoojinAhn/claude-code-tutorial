@@ -1,118 +1,123 @@
-# Module 7: Integrations
+# Module 7: Advanced
 
-Claude Code doesn't work in isolation — it connects to external tools, services, and workflows. This final module covers how to extend Claude Code with hooks, connect to MCP servers, manage authentication, and report issues.
+This module is optional. The core commands from Modules 1-6 are all you need for everyday Claude Code usage.
 
-By the end of this module, you'll know how to integrate Claude Code into your broader development workflow.
+Here you'll learn how to deeply customize Claude Code and connect it with external tools. Each command is independent, so feel free to learn only the ones that interest you.
 
 ---
 
-## 7.1 /mcp
+## 7.1 /config
 
-**Explain:** `/mcp` manages MCP (Model Context Protocol) server connections. MCP is a protocol that lets Claude Code connect to external tools and data sources — like databases, APIs, documentation servers, or custom tooling. Think of MCP servers as plugins that give Claude new capabilities beyond its built-in tools.
+**Explain:** `/config` lets you view and edit Claude Code's full configuration. While `/permissions` (Module 2) focuses on tool access, `/config` covers broader settings — default model, theme, auto-execution rules, and more.
 
 **Syntax:**
 ```
-/mcp
+/config
 ```
 
-**Example:** Running `/mcp` shows connected servers and lets you manage them:
-- View connected MCP server list and their status
-- Add new servers
-- Remove existing servers
-- Restart server connections
-- Handle OAuth authentication for servers that require it
+**Example:** Running `/config` opens the settings interface. Key settings include:
+- Which actions require confirmation vs. run automatically
+- Default model preference
+- Theme and display settings
+- Tool permissions (global and project level)
 
-Common MCP servers include:
-- **GitHub** — interact with repos, issues, and PRs
-- **Database servers** — query databases directly from Claude
-- **Documentation servers** — give Claude access to your internal docs
-- **Custom tools** — any tool you build that speaks MCP
+**Practice:** Run `/config` and find your **current default model** in the settings. What is it set to?
 
-**Practice:** Try running `/mcp` now. See what MCP servers are available and connected.
+**Check:** Settings are split between global (`~/.claude/`) and project level (`.claude/` directory). This distinction is useful when different projects need different configurations.
 
-**Check:** Done? Tell me what you see. Even if you don't have any custom MCP servers, you should see the management interface.
+**Tip:** The most impactful config for productivity is auto-allowing safe operations (tests, lint). Start restrictive and gradually open up as you build trust.
 
-**Tip:** MCP is what makes Claude Code truly extensible. If you find yourself repeatedly copying data from an external tool (database, API docs, monitoring dashboard) into Claude, there's probably an MCP server for it — or you can build one. MCP server prompts also appear as slash commands with the format `/mcp__<server>__<prompt>`.
+Use `AskUserQuestion` to ask whether to continue:
+- **Continue** — Learn the next command (`/hooks`)
+- **Finish here** — Show the cheatsheet and end the tutorial
 
 ---
 
 ## 7.2 /hooks
 
-**Explain:** `/hooks` lets you view and manage event hooks — custom scripts or commands that run automatically before or after Claude Code performs certain actions. Hooks let you automate repetitive tasks and enforce workflows without manual intervention.
+**Explain:** `/hooks` manages event hooks — shell commands that run automatically when certain events occur. For example, "auto-run the formatter every time Claude modifies a file." Hooks let you enforce workflows without manual intervention.
 
 **Syntax:**
 ```
 /hooks
 ```
 
-**Example:** Running `/hooks` shows your configured hooks and lets you manage them. Common use cases:
-- **Pre-save formatting:** Auto-format code before Claude writes a file
-- **Post-edit linting:** Run linters after Claude modifies code
-- **Notifications:** Get notified when long-running tasks complete
-- **Custom validation:** Enforce project rules before changes are applied
+**Example:** Running `/hooks` shows the hook configuration menu. Configurable event types:
+- **After file edit:** Auto-run formatters (prettier, black, etc.)
+- **Before/after commands:** Block dangerous commands or add logging
+- **Notifications:** Desktop alerts when long tasks finish
+- **Custom validation:** Enforce project-specific rules automatically
 
-**Practice:** Try running `/hooks` now. See what hooks are currently configured (if any).
+**Practice:** Run `/hooks` and count how many **event types** are available. Tell me the number.
 
-**Check:** Done? Tell me what you see. If no hooks are configured, that's normal for a fresh setup. Think about what automations would help your workflow.
+**Check:** You don't need to set up hooks right away. But when you find yourself thinking "I wish this happened automatically every time," remember `/hooks`.
 
-**Tip:** The most universally useful hook is auto-formatting on file write. If your project uses Prettier, ESLint, Black, or any formatter, set it up as a hook. This way, every file Claude writes automatically matches your project's style — no manual cleanup needed.
+**Tip:** The most universally useful hook is auto-formatting on file write. If your project uses Prettier, Black, or any formatter, set it as a hook. Every file Claude writes will automatically match your project style.
 
----
-
-## 7.3 /login and /logout
-
-**Explain:** `/login` authenticates you with the Claude Code service, and `/logout` ends your session. You'll typically use `/login` when setting up Claude Code for the first time, when your session expires, or when switching between accounts.
-
-**Syntax:**
-```
-/login
-/logout
-```
-
-**Example:** Running `/login` starts the authentication flow:
-
-```
-> /login
-
-Opening browser for authentication...
-
-Waiting for login...
-Authentication successful!
-
-Logged in as: developer@company.com
-Account type: Pro
-```
-
-When you'd need these:
-- **First-time setup:** `/login` to connect your account
-- **Session expired:** You'll see auth errors — `/login` refreshes your session
-- **Switching accounts:** `/logout` then `/login` with different credentials
-- **Shared machines:** `/logout` when you're done so others don't use your account
-
-**Practice:** You're probably already logged in (since you're reading this). Try running `/login` to see what happens — if you're already authenticated, it will confirm your current session.
-
-**Check:** Done? Tell me what you see. Confirm that your account is connected and active.
-
-**Tip:** If you suddenly start getting authentication errors mid-session, don't panic. Your token likely expired. A quick `/login` usually fixes it in seconds. If that doesn't work, try `/doctor` to diagnose the issue.
+Use `AskUserQuestion` to ask whether to continue:
+- **Continue** — Learn the next command (`/mcp`)
+- **Finish here** — Show the cheatsheet and end the tutorial
 
 ---
 
-## 7.4 /bug
+## 7.3 /mcp
 
-**Explain:** `/bug` lets you report a bug directly to the Claude Code team. If you encounter unexpected behavior, crashes, or something that just doesn't seem right, this is the fastest way to get it logged.
+**Explain:** `/mcp` manages MCP (Model Context Protocol) server connections. Think of MCP as a plugin system for Claude Code — it lets you connect external tools and data sources to extend Claude's capabilities.
 
 **Syntax:**
 ```
-/bug
+/mcp
 ```
 
-**Example:** Running `/bug` opens the bug reporting flow. Your session context is automatically included, making it easier for the team to reproduce the issue. You can describe the problem and submit.
+**Example:** Running `/mcp` shows the MCP server management menu:
+- View connected server list and status
+- Add or remove servers
+- Restart connections
+- Handle OAuth authentication
 
-**Practice:** Try running `/bug` now — but only if you actually have something to report! If Claude Code is working well, just see how the flow starts and cancel before submitting.
+Common MCP servers:
+- **GitHub** — interact with repos, issues, and PRs
+- **Database servers** — query databases directly from Claude
+- **Documentation servers** — search internal docs
+- **Browser automation** — access web pages
 
-**Check:** Done? Now you know where to go when something goes wrong.
+**Practice:** Run `/mcp` and check if any MCP servers are connected. Tell me the **number of connected servers** (if none, just say "0").
 
-**Tip:** The best bug reports include a specific, reproducible scenario. Instead of "Claude messed up my code," try "When I asked Claude to rename the `UserService` class, it updated the class name but missed the import in `index.ts`." Specificity helps the team fix the issue much faster.
+**Check:** Having no MCP servers is normal. Add them when you need them. MCP server prompts also appear as slash commands with the format `/mcp__<server>__<prompt>`.
+
+**Tip:** If you find yourself repeatedly copying data from an external tool into Claude, look for an MCP server for that tool. It could dramatically improve your workflow.
+
+Use `AskUserQuestion` to ask whether to continue:
+- **Continue** — Learn the final command (`/agents`)
+- **Finish here** — Show the cheatsheet and end the tutorial
+
+---
+
+## 7.4 /agents
+
+**Explain:** `/agents` manages background agents (sub-tasks) running in your session. When Claude Code handles complex tasks, it can spawn multiple agents to work in parallel. `/agents` lets you monitor and manage them.
+
+**Syntax:**
+```
+/agents
+```
+
+**Example:** Running `/agents` shows the active agent list:
+- Running agents and their status
+- Progress of each agent
+- Agent results
+- Stop an agent
+
+Agents are used in situations like:
+- Searching/analyzing multiple files simultaneously
+- Parallel work during complex refactoring
+- Running tests while modifying code at the same time
+
+**Practice:** Run `/agents` and see if any agents are currently active. Usually the list will be empty — agents are created automatically when Claude needs them for complex tasks.
+
+**Check:** Agents are created and managed automatically by Claude Code. `/agents` is the command for when you want to monitor that process.
+
+**Tip:** When multiple agents run simultaneously, token usage can increase rapidly. Monitor your context usage with `/context` alongside `/agents`.
 
 ---
 
@@ -120,17 +125,17 @@ When you'd need these:
 
 **Progress: [################] 7/7 modules done**
 
-You now know how to integrate Claude Code with your workflow:
-- `/mcp` — extend Claude with external tools and data sources
-- `/hooks` — automate pre/post actions for consistency
-- `/login` / `/logout` — manage authentication
-- `/bug` — report issues to make Claude Code better
+You've learned the advanced commands:
+- `/config` — deep configuration customization
+- `/hooks` — event-driven automation
+- `/mcp` — external tool integration
+- `/agents` — background agent management
 
 ---
 
 ## Tutorial Complete!
 
-Congratulations! You've completed all seven modules covering 27 slash commands.
+Congratulations! You've completed all seven modules.
 
 For a quick reference, open `99-cheatsheet.md` — it has every command on a single page.
 

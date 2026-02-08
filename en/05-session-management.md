@@ -33,9 +33,9 @@ Select a session to resume:
 
 The resumed session restores the full conversation context, so Claude remembers everything you discussed.
 
-**Practice:** Try running `/resume` now. You should see a list of your recent sessions (if any). You don't have to actually resume one — just see what's available.
+**Practice:** Run `/resume` and tell me the **name (or date) of your most recent session**. If the list is empty, just say "none." You don't have to actually resume one.
 
-**Check:** Done? Do you see any previous sessions? If this is your first time using Claude Code, the list might be empty, and that's fine.
+**Check:** Acknowledge the answer. "None" is normal for first-time users. If sessions exist, it shows that Claude Code automatically saves every session.
 
 **Tip:** You can also resume from the command line with `claude -c` (continue most recent) or `claude -r "session-name"`. This is handy when you close your terminal and want to jump right back into what you were doing.
 
@@ -59,9 +59,9 @@ You can also trigger rewind by pressing `Esc` twice.
 
 This is different from `/clear` — rewind is surgical, clear is nuclear.
 
-**Practice:** Try pressing `Esc Esc` or running `/rewind` now. Browse through the checkpoints to see what's available. You don't have to actually rewind — just explore the interface.
+**Practice:** Press `Esc Esc` or run `/rewind`. How many **restore points** do you see? You don't have to actually rewind — just browse.
 
-**Check:** Done? Can you see the different restore points? Notice how it offers to restore code changes too, not just conversation.
+**Check:** Acknowledge the answer. Restore points track both conversation and code changes together. When things go wrong, a clean rewind is more efficient than trying to patch forward.
 
 **Tip:** Rewind is your safety net. When Claude goes down the wrong path — wrong architecture, broken code, bad approach — don't try to patch it up. Rewind to the point before the mistake and try a different instruction. It's faster than fixing forward.
 
@@ -85,9 +85,9 @@ Session renamed to "auth-refactor"
 
 Now when you use `/resume` or `claude -r`, this session shows up as "auth-refactor" instead of a random ID.
 
-**Practice:** Try running `/rename` with a descriptive name for this tutorial session. Something like `/rename tutorial-session` works.
+**Practice:** Run `/rename tutorial-session` and tell me the **confirmation message** you see.
 
-**Check:** Done? Your session now has a name. Next time you use `/resume`, you'll see it listed with this name.
+**Check:** Confirm the session was renamed to "tutorial-session." Next time you use `/resume`, it will appear with this name in the list.
 
 **Tip:** Get in the habit of naming sessions when you start working on a distinct task. It takes two seconds and saves you from scrolling through unnamed sessions later. Especially useful if you juggle multiple projects or tasks.
 
@@ -115,9 +115,9 @@ Last response copied to clipboard.
 
 Now you can paste it directly wherever you need it.
 
-**Practice:** Try running `/copy` now. Then paste it somewhere (your editor, a notes app) to verify it worked.
+**Practice:** Run `/copy`, then paste into an editor or notes app. Tell me the **first line** of what was copied.
 
-**Check:** Done? Was the response successfully copied to your clipboard?
+**Check:** Acknowledge the answer. The last response was successfully copied to clipboard. This is useful for grabbing long code snippets or explanations without manual selection.
 
 **Tip:** This is particularly useful when Claude generates a long code snippet or a detailed explanation. Instead of scrolling up and carefully selecting text in the terminal, `/copy` grabs the whole response cleanly.
 
@@ -133,6 +133,6 @@ You now have full control over your sessions:
 - `/rename` — name sessions for easy identification
 - `/copy` — copy responses to clipboard
 
-Next up: **Module 6 — Developer Tools**, where you'll learn about diagnostics, terminal setup, themes, and code review.
+Next up: **Module 6 — Developer Tools**, where you'll learn about diagnostics, themes, and code review.
 
 **Continue?** Open `06-dev-tools.md` when you're ready.

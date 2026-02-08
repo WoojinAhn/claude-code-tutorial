@@ -40,9 +40,13 @@ After /compact:
 | Context from earlier work | Retained as summary | Gone |
 | When to use | Long sessions, running low on context | Starting a completely new task |
 
-**Practice:** Try running `/compact` now. If your conversation is short, the effect will be minimal — but you'll see how it works.
+**Practice:** Run `/compact` and check: is any **command name from this tutorial still preserved** in the summary? Tell me one.
 
-**Check:** Done? Tell me what you see. The conversation should feel lighter. If you had a long history, you'll notice the summary that was created.
+> **Heads up:** After running `/compact`, the screen will change dramatically — your conversation gets replaced with a short summary. It can feel like everything was erased, but don't worry. The key context is preserved inside that summary, and the tutorial continues right where you left off. It's a compression, not a reset.
+>
+> Want to see what's in the summary? Check the shortcut hint shown on screen right after compact — it lets you expand and read the summarized content.
+
+**Check:** Acknowledge the keyword. Summaries preserve key context while trimming details. The effect may be minimal with a short conversation, but it shines during long sessions.
 
 **Tip:** Don't wait until Claude starts forgetting things to use `/compact`. A good habit is to compact after completing each major subtask — finished debugging? Compact. Done with the refactor? Compact. This keeps your session fresh and responsive throughout long working sessions.
 
@@ -64,9 +68,9 @@ After /compact:
 
 This gives you an intuitive sense of how much "memory" Claude has left before it starts losing earlier context.
 
-**Practice:** Try running `/context` now. See how much context this tutorial has used so far.
+**Practice:** Run `/context` and tell me roughly **what percentage** of your context window is used.
 
-**Check:** Done? How full is your context window? If you've been going through the tutorial sequentially, it should be partially filled.
+**Check:** Acknowledge the number and connect it to action (e.g., "Still plenty of room" or "Getting full — this is when `/compact` comes in handy"). As a rule of thumb, consider compacting when usage exceeds 80%.
 
 **Tip:** Pair `/context` with `/compact` — check `/context` to see if you're running low, then `/compact` to free up space. It's like checking your phone storage before deciding whether to delete old photos.
 
@@ -92,9 +96,9 @@ Total code changes:    0 lines added, 0 lines removed
 
 **Note:** On subscription plans (Max/Pro), `/cost` may not appear in your `/help` list since it's designed for API billing. If you don't see it, that's expected — use `/stats` to view your usage patterns instead.
 
-**Practice:** If you're on an API plan, try running `/cost` now. If you're on a subscription, skip to the next section (`/stats`).
+**Practice:** If you're on an API plan, run `/cost` and tell me the **total cost** for this session. If you're on a subscription, skip to `/stats`.
 
-**Check:** Done? If you ran it, you can see how much this tutorial session has used. If it wasn't available, no worries — `/stats` is your alternative.
+**Check:** Acknowledge the cost. Long sessions and Opus usage can burn through tokens fast — periodic checks help keep spending in control.
 
 **Tip:** For API users, check `/cost` periodically during long sessions. Big refactoring tasks and Opus usage can burn through tokens fast. Setting a `--max-budget-usd` flag when starting Claude Code can prevent unexpected costs.
 
@@ -115,9 +119,9 @@ Total code changes:    0 lines added, 0 lines removed
 - Which models you use most
 - Usage streaks
 
-**Practice:** Try running `/stats` now. See what your usage patterns look like.
+**Practice:** Run `/stats` and tell me the name of your **most-used model**. If there's no data yet, just say "none."
 
-**Check:** Done? Tell me what you see. Any interesting patterns in how you use Claude Code?
+**Check:** Acknowledge the answer. Usage patterns help optimize your workflow — for example, if you're using Opus for tasks where Sonnet would suffice, that's a cost-saving opportunity.
 
 **Tip:** `/stats` is a great way to understand your own workflow. If you notice you're mostly using Haiku for tasks that would benefit from Sonnet, or spending very long sessions without compacting, the data can help you optimize how you work with Claude Code.
 

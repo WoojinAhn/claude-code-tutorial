@@ -10,7 +10,7 @@ Claude Code 안에서 바로 슬래시 커맨드를 배우는 인터랙티브 �
 
 - **인터랙티브**: 설명 → 문법 → 예시 → 실습 → 확인 → 팁 순서로 하나씩 배움
 - **이중 언어**: 영어(`en`)와 한국어(`kr`) 지원
-- **27개 커맨드**를 7개 모듈 + 치트시트로 구성
+- **23개 커맨드**를 7개 모듈 (코어 6 + 고도화 1) + 치트시트로 구성
 - **자기 주도**: 건너뛰기, 원하는 모듈로 점프, 언제든 종료 가능
 
 ## 요구사항
@@ -45,12 +45,12 @@ Claude Code를 실행하고 입력하세요:
 | 모듈 | 주제 | 커맨드 |
 |------|------|--------|
 | 1 | 첫 걸음 | `/help`, `/status`, `/clear` |
-| 2 | 프로젝트 설정 | `/init`, `/memory`, `/config`, `/permissions` |
-| 3 | 모델과 모드 | `/model`, `/plan`, `/vim` |
+| 2 | 프로젝트 설정 | `/init`, `/memory`, `/permissions` |
+| 3 | 모델과 모드 | `/model`, `/plan` |
 | 4 | 컨텍스트와 사용량 | `/compact`, `/context`, `/cost`, `/stats` |
 | 5 | 세션 관리 | `/resume`, `/rewind`, `/rename`, `/copy` |
-| 6 | 개발자 도구 | `/doctor`, `/terminal-setup`, `/theme`, `/review` |
-| 7 | 통합 기능 | `/mcp`, `/hooks`, `/login`, `/logout`, `/bug` |
+| 6 | 개발자 도구 | `/doctor`, `/theme`, `/review` |
+| 7 | 고도화 | `/config`, `/hooks`, `/mcp`, `/agents` |
 | - | 치트시트 | 전체 커맨드 참조 |
 
 ## 제거
